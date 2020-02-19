@@ -1,0 +1,201 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+    Your Shopping Cart
+{% endblock %}
+
+
+{% block content %}
+    <!-- Page info -->
+	<div class="page-top-info">
+		<div class="container">
+			<h4>Your cart</h4>
+			<div class="site-pagination">
+				<a href="">Home</a> /
+				<a href="">Your cart</a>
+			</div>
+		</div>
+	</div>
+	<!-- Page info end -->
+    <!-- cart section end -->
+	<section class="cart-section spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="cart-table">
+						<h3>Your Cart</h3>
+						<div class="cart-table-warp">
+							<table>
+							<thead>
+								<tr>
+									<th class="product-th">PID</th>
+									<th class="product-th">Image</th>
+									<th class="product-th">Product</th>
+									<th class="quy-th">Quantity</th>
+									<th class="size-th">Remove</th>
+									<th class="size-th">Unit Price</th>
+									<th class="total-th">Price</th>
+								</tr>
+							</thead>
+							<tbody>
+                            {% for item in cart %}
+                        {% with product=item.product %}
+                        <tr><td>
+                            {{ product.id }}
+                        </td>
+                            <td>
+                                <a href="{{ product.get_absolute_url }}">
+                                    <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/no_image.png' %} {% endif %}" alt="..." style="height: 130px; width: auto">
+                                </a>
+                            </td>
+                            <td>{{ product.name }}</td>
+                            <td>
+                                <form action="{% url "cart:cart_add" product.id %}" method="post">
+                                    {% csrf_token %}
+                                    {{ item.update_quantity_form.quantity }}
+                                    {{ item.update_quantity_form.update }}
+                                    <input type="submit" value="Update" class="btn btn-info">
+                                </form>
+                            </td>
+                            <td>
+                                <a href="{% url "cart:cart_remove" product.id %}">Remove</a>
+                            </td>
+                            <td>kshs. {{ item.price }}</td>
+                            <td>kshs. {{ item.total_price }}</td>
+                        </tr>
+                    {% endwith %}
+                {% endfor %}
+{#                <tr style="background-color: #5AC8FA">#}
+{#                    <td><b>Total</b></td>#}
+{#                    <td colspan="4"></td>#}
+{#                    <td colspan="num"><b>kshs. {{ cart.get_total_price }}</b></td>#}
+{#                </tr>#}
+{#                </tbody>#}
+{#								<tr>#}
+{#									<td class="product-col">#}
+{#										<img src="{% static "home/img/cart/2.jpg" %}" alt="">#}
+{#										<div class="pc-title">#}
+{#											<h4>Ruffle Pink Top</h4>#}
+{#											<p>$45.90</p>#}
+{#										</div>#}
+{#									</td>#}
+{#									<td class="quy-col">#}
+{#										<div class="quantity">#}
+{#					                        <div class="pro-qty">#}
+{#												<input type="text" value="1">#}
+{#											</div>#}
+{#                    					</div>#}
+{#									</td>#}
+{#									<td class="size-col"><h4>Size M</h4></td>#}
+{#									<td class="total-col"><h4>$45.90</h4></td>#}
+{#								</tr>#}
+{#								<tr>#}
+{#									<td class="product-col">#}
+{#										<img src="{% static "home/img/cart/3.jpg" %}" alt="">#}
+{#										<div class="pc-title">#}
+{#											<h4>Skinny Jeans</h4>#}
+{#											<p>$45.90</p>#}
+{#										</div>#}
+{#									</td>#}
+{#									<td class="quy-col">#}
+{#										<div class="quantity">#}
+{#					                        <div class="pro-qty">#}
+{#												<input type="text" value="1">#}
+{#											</div>#}
+{#                    					</div>#}
+{#									</td>#}
+{#									<td class="size-col"><h4>Size M</h4></td>#}
+{#									<td class="total-col"><h4>$45.90</h4></td>#}
+{#								</tr>#}
+							</tbody>
+						</table>
+						</div>
+						<div class="total-cost">
+							<h6>Total <span>{{ cart.get_total_price }}</span></h6>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-lg-4 card-right">
+{#					<form class="promo-code-form">#}
+{#						<input type="text" placeholder="Enter promo code">#}
+{#						<button>Submit</button>#}
+{#					</form>#}
+					<a href="{% url "orders:order_create" %}" class="site-btn">Proceed to checkout</a>
+					<a href="{% url "shop:product_list" %}" class="site-btn sb-dark">Continue shopping</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+	<!-- cart section end -->
+{# <div class="container">#}
+{#        <div class="row" style="margin-top: 6%">#}
+{#        <h2>Your Shopping Cart#}
+{#            <span class="badge pull-right">#}
+{#                {% with totail_items=cart|length %}#}
+{#                    {% if cart|length > 0 %}#}
+{#                        My Shopping Order:#}
+{#                        <a href="{% url "cart:cart_detail" %}" style="color: #ffffff">#}
+{#                            {{ totail_items }} item {{ totail_items|pluralize }}, Kshs. {{ cart.get_total_price }}#}
+{#                        </a>#}
+{#                        {% else %}#}
+{#                        Your cart is empty.#}
+{#                    {% endif %}#}
+{#                {% endwith %}#}
+{#            </span>#}
+{#        </h2>#}
+{#            <table class="table table-striped table-hover">#}
+{#                <thead style="background-color: #5AC8FA">#}
+{#                    <tr>#}
+{#                        <th>Image</th>#}
+{#                        <th>Product</th>#}
+{#                        <th>Quantity</th>#}
+{#                        <th>Remove</th>#}
+{#                        <th>Unit Price</th>#}
+{#                        <th>Price</th>#}
+{#                    </tr>#}
+{#                </thead>#}
+{#                <tbody>#}
+{#                {% for item in cart %}#}
+{#                    {% with product=item.product %}#}
+{#                        <tr>#}
+{#                            <td>#}
+{#                                <a href="{{ product.get_absolute_url }}">#}
+{#                                    <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/no_image.png' %} {% endif %}" alt="..." style="height: 130px; width: auto">#}
+{#                                </a>#}
+{#                            </td>#}
+{#                            <td>{{ product.name }}</td>#}
+{#                            <td>#}
+{#                                <form action="{% url "cart:cart_add" product.id %}" method="post">#}
+{#                                    {% csrf_token %}#}
+{#                                    {{ item.update_quantity_form.quantity }}#}
+{#                                    {{ item.update_quantity_form.update }}#}
+{#                                    <input type="submit" value="Update" class="btn btn-info">#}
+{#                                </form>#}
+{#                            </td>#}
+{#                            <td>#}
+{#                                <a href="{% url "cart:cart_remove" product.id %}">Remove</a>#}
+{#                            </td>#}
+{#                            <td>kshs. {{ item.price }}</td>#}
+{#                            <td>kshs. {{ item.total_price }}</td>#}
+{#                        </tr>#}
+{#                    {% endwith %}#}
+{#                {% endfor %}#}
+{#                <tr style="background-color: #5AC8FA">#}
+{#                    <td><b>Total</b></td>#}
+{#                    <td colspan="4"></td>#}
+{#                    <td colspan="num"><b>kshs. {{ cart.get_total_price }}</b></td>#}
+{#                </tr>#}
+{#                </tbody>#}
+{#            </table>#}
+{#        <p class="text-right">#}
+{#            <a href="{% url "shop:product_list" %}" class="btn btn-default">Continue Shopping</a>#}
+{#            <a href="{% url "orders:order_create" %}" class="btn btn-primary">Checkout</a>#}
+{#        </p>#}
+{#        </div>#}
+{#    </div>#}
+{% endblock %}

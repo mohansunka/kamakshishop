@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+
+<html lang="en-us" >
+<head>
+<title>Change order | Django site admin</title>
+{#<link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">#}
+{#<link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css">#}
+{##}
+{##}
+{#<script type="text/javascript" src="/admin/jsi18n/"></script>#}
+{#<script type="text/javascript" src="/static/admin/js/vendor/jquery/jquery.js"></script>#}
+{#<script type="text/javascript" src="/static/admin/js/jquery.init.js"></script>#}
+{#<script type="text/javascript" src="/static/admin/js/core.js"></script>#}
+{#<script type="text/javascript" src="/static/admin/js/inlines.js"></script>#}
+{#<script type="text/javascript" src="/static/admin/js/admin/RelatedObjectLookups.js"></script>#}
+{#<script type="text/javascript" src="/static/admin/js/actions.js"></script>#}
+{#<script type="text/javascript" src="/static/admin/js/urlify.js"></script>#}
+{#<script type="text/javascript" src="/static/admin/js/prepopulate.js"></script>#}
+{#<script type="text/javascript" src="/static/admin/js/vendor/xregexp/xregexp.js"></script>#}
+
+
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+{#    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">#}
+
+
+<meta name="robots" content="NONE,NOARCHIVE">
+</head>
+
+
+<body class=" app-orders model-order change-form"
+  data-admin-utc-offset="0">
+
+<!-- Container -->
+<div id="container">
+
+
+    <!-- Header -->
+    <div id="header">
+        <div id="branding">
+
+{#<h1 id="site-name"><a href="/admin/">Django administration</a></h1>#}
+
+        </div>
+{#        <div id="user-tools">#}
+{#            Welcome,#}
+{#            <strong>mohan</strong>.#}
+{#            <a href="/">View site</a> /#}
+{#            <a href="/admin/password_change/">Change password</a> /<a href="/admin/logout/">Log out</a>#}
+
+        </div>
+    </div>
+    <!-- END Header -->
+
+<div class="breadcrumbs">
+{#<a href="/admin/">Home</a>#}
+{#&rsaquo; <a href="/admin/orders/">Orders</a>#}
+{#&rsaquo; <a href="/admin/orders/order/">Orders</a>#}
+{#&rsaquo; Order 2#}
+</div>
+    <!-- Content -->
+    <div id="content" class="colM">
+
+        <h1>Change order</h1>
+        <div id="content-main">
+
+
+  <ul class="object-tools">
+<li>
+{#    <a href="/admin/orders/order/2/history/" class="historylink">History</a>#}
+</li>
+  </ul>
+<form action="" method="post" id="order_form" novalidate><input type="hidden" name="csrfmiddlewaretoken" value="4zXP6T0JatunI0gHiqa4WnbTBmmfZ3Z5gzF77bEToFsgMk2jHKfsOedjg5nfptHX">
+<div>
+  <fieldset class="module aligned ">
+      <div class="form-row field-first_name">
+          <div>
+              <label class="required" for="id_first_name">First name:</label>
+              <input type="text" name="first_name" value="mohan" class="vTextField" maxlength="60" required id="id_first_name">
+          </div>
+      </div>
+      <div class="form-row field-last_name">
+          <div>
+              <label class="required" for="id_last_name">Last name:</label>
+              <input type="text" name="last_name" value="SUNKI" class="vTextField" maxlength="60" required id="id_last_name">
+          </div>
+      </div>
+      <div class="form-row field-email">
+          <div>
+                        <label class="required" for="id_email">Email:</label>
+                            <input type="email" name="email" value="mohansunka113@gamil.com" class="vTextField" maxlength="254" required id="id_email">
+          </div>
+
+        </div>
+
+        <div class="form-row field-address">
+            <div>
+                <label class="required" for="id_address">Address:</label>
+                <input type="text" name="address" value="1-4-139,VENKAMPET,SIRCILLA." class="vTextField" maxlength="150" required id="id_address">
+            </div>
+        </div>
+      <div class="form-row field-postal_code">
+          <div>
+              <label class="required" for="id_postal_code">Postal code:</label>
+              <input type="text" name="postal_code" value="1231" class="vTextField" maxlength="30" required id="id_postal_code">
+          </div>
+      </div>
+      <div class="form-row field-city">
+          <div>
+              <label class="required" for="id_city">City:</label>
+              <input type="text" name="city" value="america" class="vTextField" maxlength="100" required id="id_city">
+
+
+
+                </div>
+
+        </div>
+
+        <div class="form-row field-PrID">
+
+
+                <div>
+
+
+                        <label class="required" for="id_PrID">PrID:</label>
+
+                            <input type="number" name="PrID" value="0" class="vIntegerField" required id="id_PrID">
+
+
+
+                </div>
+
+        </div>
+
+        <div class="form-row field-CashOnDelivery">
+
+
+                <div class="checkbox-row">
+
+
+                        <input type="checkbox" name="CashOnDelivery" id="id_CashOnDelivery" checked><label class="vCheckboxLabel" for="id_CashOnDelivery">CashOnDelivery</label>
+
+
+                </div>
+
+        </div>
+
+        <div class="form-row field-paid">
+
+
+                <div class="checkbox-row">
+
+
+                        <input type="checkbox" name="paid" id="id_paid"><label class="vCheckboxLabel" for="id_paid">Paid</label>
+
+
+                </div>
+
+        </div>
+
+</fieldset>
+
+
+
+
+
+
+
+
+
+<div class="js-inline-admin-formset inline-group" id="items-group"
+     data-inline-type="tabular"
+     data-inline-formset="{&quot;name&quot;: &quot;#items&quot;, &quot;options&quot;: {&quot;prefix&quot;: &quot;items&quot;, &quot;addText&quot;: &quot;Add another Order item&quot;, &quot;deleteText&quot;: &quot;Remove&quot;}}">
+  <div class="tabular inline-related last-related">
+<input type="hidden" name="items-TOTAL_FORMS" value="6" id="id_items-TOTAL_FORMS"><input type="hidden" name="items-INITIAL_FORMS" value="3" id="id_items-INITIAL_FORMS"><input type="hidden" name="items-MIN_NUM_FORMS" value="0" id="id_items-MIN_NUM_FORMS"><input type="hidden" name="items-MAX_NUM_FORMS" value="1000" id="id_items-MAX_NUM_FORMS">
+<fieldset class="module ">
+   <h2>Order items</h2>
+
+   <table>
+     <thead><tr>
+       <th class="original"></th>
+
+
+         <th class="column-product required">Product
+
+         </th>
+
+
+
+         <th class="column-price required">Price
+
+         </th>
+
+
+
+         <th class="column-quantity required">Quantity
+
+         </th>
+
+
+     <th>Delete?</th>
+     </tr></thead>
+
+     <tbody>
+
+
+        <tr class="form-row row1 has_original"
+             id="items-0">
+        <td class="original">
+          <p>
+
+          2
+
+
+
+            </p>
+          <input type="hidden" name="items-0-id" value="2" id="id_items-0-id">
+          <input type="hidden" name="items-0-order" value="2" id="id_items-0-order">
+
+        </td>
+
+
+
+
+              <td class="field-product">
+
+
+                  <input type="text" name="items-0-product" value="8" id="id_items-0-product" class="vForeignKeyRawIdAdminField">
+<a href="/admin/shop/product/?_to_field=id" class="related-lookup" id="lookup_id_items-0-product" title="Lookup"></a>&nbsp;<strong><a href="/admin/shop/product/8/change/">apple</a></strong>
+
+              </td>
+
+
+
+
+
+              <td class="field-price">
+
+
+                  <input type="number" name="items-0-price" value="100.00" step="0.01" id="id_items-0-price">
+
+              </td>
+
+
+
+
+
+              <td class="field-quantity">
+
+
+                  <input type="number" name="items-0-quantity" value="16" class="vIntegerField" min="0" id="id_items-0-quantity">
+
+              </td>
+
+
+
+
+
+          <td class="delete"><input type="checkbox" name="items-0-DELETE" id="id_items-0-DELETE"></td>
+
+        </tr>
+
+
+        <tr class="form-row row2 has_original"
+             id="items-1">
+        <td class="original">
+          <p>
+
+          3
+
+
+
+            </p>
+          <input type="hidden" name="items-1-id" value="3" id="id_items-1-id">
+          <input type="hidden" name="items-1-order" value="2" id="id_items-1-order">
+
+        </td>
+
+
+
+
+              <td class="field-product">
+
+
+                  <input type="text" name="items-1-product" value="9" id="id_items-1-product" class="vForeignKeyRawIdAdminField">
+<a href="/admin/shop/product/?_to_field=id" class="related-lookup" id="lookup_id_items-1-product" title="Lookup"></a>&nbsp;<strong><a href="/admin/shop/product/9/change/">onions</a></strong>
+
+              </td>
+
+
+
+
+
+              <td class="field-price">
+
+
+                  <input type="number" name="items-1-price" value="100.00" step="0.01" id="id_items-1-price">
+
+              </td>
+
+
+
+
+
+              <td class="field-quantity">
+
+
+                  <input type="number" name="items-1-quantity" value="3" class="vIntegerField" min="0" id="id_items-1-quantity">
+
+              </td>
+
+
+
+
+
+          <td class="delete"><input type="checkbox" name="items-1-DELETE" id="id_items-1-DELETE"></td>
+
+        </tr>
+
+
+        <tr class="form-row row1 has_original"
+             id="items-2">
+        <td class="original">
+          <p>
+
+          4
+
+
+
+            </p>
+          <input type="hidden" name="items-2-id" value="4" id="id_items-2-id">
+          <input type="hidden" name="items-2-order" value="2" id="id_items-2-order">
+
+        </td>
+
+
+
+
+              <td class="field-product">
+
+
+                  <input type="text" name="items-2-product" value="10" id="id_items-2-product" class="vForeignKeyRawIdAdminField">
+<a href="/admin/shop/product/?_to_field=id" class="related-lookup" id="lookup_id_items-2-product" title="Lookup"></a>&nbsp;<strong><a href="/admin/shop/product/10/change/">tomoto</a></strong>
+
+              </td>
+
+
+
+
+
+              <td class="field-price">
+
+
+                  <input type="number" name="items-2-price" value="100.00" step="0.01" id="id_items-2-price">
+
+              </td>
+
+
+
+
+
+              <td class="field-quantity">
+
+
+                  <input type="number" name="items-2-quantity" value="1" class="vIntegerField" min="0" id="id_items-2-quantity">
+
+              </td>
+
+
+
+
+
+          <td class="delete"><input type="checkbox" name="items-2-DELETE" id="id_items-2-DELETE"></td>
+
+        </tr>
+
+
+        <tr class="form-row row2 "
+             id="items-3">
+        <td class="original">
+
+          <input type="hidden" name="items-3-id" id="id_items-3-id">
+          <input type="hidden" name="items-3-order" value="2" id="id_items-3-order">
+
+        </td>
+
+
+
+
+              <td class="field-product">
+
+
+                  <input type="text" name="items-3-product" id="id_items-3-product" class="vForeignKeyRawIdAdminField">
+<a href="/admin/shop/product/?_to_field=id" class="related-lookup" id="lookup_id_items-3-product" title="Lookup"></a>
+
+              </td>
+
+
+
+
+
+              <td class="field-price">
+
+
+                  <input type="number" name="items-3-price" step="0.01" id="id_items-3-price">
+
+              </td>
+
+
+
+
+
+              <td class="field-quantity">
+
+
+                  <input type="number" name="items-3-quantity" value="1" class="vIntegerField" min="0" id="id_items-3-quantity">
+
+              </td>
+
+
+
+
+
+          <td class="delete"></td>
+
+        </tr>
+
+
+        <tr class="form-row row1 "
+             id="items-4">
+        <td class="original">
+
+          <input type="hidden" name="items-4-id" id="id_items-4-id">
+          <input type="hidden" name="items-4-order" value="2" id="id_items-4-order">
+
+        </td>
+
+
+
+
+              <td class="field-product">
+
+
+                  <input type="text" name="items-4-product" id="id_items-4-product" class="vForeignKeyRawIdAdminField">
+<a href="/admin/shop/product/?_to_field=id" class="related-lookup" id="lookup_id_items-4-product" title="Lookup"></a>
+
+              </td>
+
+
+
+
+
+              <td class="field-price">
+
+
+                  <input type="number" name="items-4-price" step="0.01" id="id_items-4-price">
+
+              </td>
+
+
+
+
+
+              <td class="field-quantity">
+
+
+                  <input type="number" name="items-4-quantity" value="1" class="vIntegerField" min="0" id="id_items-4-quantity">
+
+              </td>
+
+
+
+
+
+          <td class="delete"></td>
+
+        </tr>
+
+
+        <tr class="form-row row2 "
+             id="items-5">
+        <td class="original">
+
+          <input type="hidden" name="items-5-id" id="id_items-5-id">
+          <input type="hidden" name="items-5-order" value="2" id="id_items-5-order">
+
+        </td>
+
+
+
+
+              <td class="field-product">
+
+
+                  <input type="text" name="items-5-product" id="id_items-5-product" class="vForeignKeyRawIdAdminField">
+<a href="/admin/shop/product/?_to_field=id" class="related-lookup" id="lookup_id_items-5-product" title="Lookup"></a>
+
+              </td>
+
+
+
+
+
+              <td class="field-price">
+
+
+                  <input type="number" name="items-5-price" step="0.01" id="id_items-5-price">
+
+              </td>
+
+
+
+
+
+              <td class="field-quantity">
+
+
+                  <input type="number" name="items-5-quantity" value="1" class="vIntegerField" min="0" id="id_items-5-quantity">
+
+              </td>
+
+
+
+
+
+          <td class="delete"></td>
+
+        </tr>
+
+
+        <tr class="form-row row1  empty-form"
+             id="items-empty">
+        <td class="original">
+
+          <input type="hidden" name="items-__prefix__-id" id="id_items-__prefix__-id">
+          <input type="hidden" name="items-__prefix__-order" value="2" id="id_items-__prefix__-order">
+
+        </td>
+
+
+
+
+              <td class="field-product">
+
+
+                  <input type="text" name="items-__prefix__-product" id="id_items-__prefix__-product" class="vForeignKeyRawIdAdminField">
+<a href="/admin/shop/product/?_to_field=id" class="related-lookup" id="lookup_id_items-__prefix__-product" title="Lookup"></a>
+
+              </td>
+
+
+
+
+
+              <td class="field-price">
+
+
+                  <input type="number" name="items-__prefix__-price" step="0.01" id="id_items-__prefix__-price">
+
+              </td>
+
+
+
+
+
+              <td class="field-quantity">
+
+
+                  <input type="number" name="items-__prefix__-quantity" value="1" class="vIntegerField" min="0" id="id_items-__prefix__-quantity">
+
+              </td>
+
+
+
+
+
+          <td class="delete"></td>
+
+        </tr>
+
+     </tbody>
+   </table>
+</fieldset>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="submit-row">
+
+<input type="submit" value="Save" class="default" name="_save">
+
+
+    <p class="deletelink-box"><a href="/admin/orders/order/2/delete/" class="deletelink">Delete</a></p>
+
+
+<input type="submit" value="Save and add another" name="_addanother">
+<input type="submit" value="Save and continue editing" name="_continue">
+
+
+</div>
+
+
+
+    <script type="text/javascript"
+            id="django-admin-form-add-constants"
+            src="/static/admin/js/change_form.js"
+            >
+    </script>
+
+
+
+
+<script type="text/javascript"
+        id="django-admin-prepopulated-fields-constants"
+        src="/static/admin/js/prepopulate_init.js"
+        data-prepopulated-fields="[]">
+</script>
+
+
+</div>
+</form></div>
+
+
+        <br class="clear">
+    </div>
+    <!-- END Content -->
+
+    <div id="footer"></div>
+</div>
+<!-- END Container -->
+
+</body>
+</html>

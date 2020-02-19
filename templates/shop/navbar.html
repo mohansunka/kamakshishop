@@ -1,0 +1,131 @@
+{% load static %}
+{#<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0px; background-color: #5AC8FA;">#}
+{#  <!-- Brand and toggle get grouped for better mobile display -->#}
+{#  <div class="container-fluid">#}
+{#      <div class="navbar-header">#}
+{#    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">#}
+{#      <span class="sr-only">Toggle navigation</span>#}
+{#      <span class="icon-bar"></span>#}
+{#      <span class="icon-bar"></span>#}
+{#      <span class="icon-bar"></span>#}
+{#    </button>#}
+{#    <a class="navbar-brand" href="{% url 'shop:product_list' %}" style="color: #ffffff">Onlineshop</a>#}
+{#  </div>#}
+{##}
+{#  <!-- Collect the nav links, forms, and other content for toggling -->#}
+{#  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">#}
+{##}
+{#    <ul class="nav navbar-nav navbar-right">#}
+{#      <li class="dropdown">#}
+{#          {% if request.user.is_authenticated %}#}
+{#        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #ffffff">{{ request.user.username }}<b class="caret"></b></a>#}
+{#        <ul class="dropdown-menu">#}
+{#          <li><a href="">logout</a></li>#}
+{#            {% else %}#}
+{#          <li class="divider"></li>#}
+{#          <li><a href="#" style="color: #ffffff">Sign in</a></li>#}
+{#         <li><a href="#" style="color: #ffffff">Sign up</a></li>#}
+{#        </ul>#}
+{#         {% endif %}#}
+{#      </li>#}
+{#    </ul>#}
+{#  </div><!-- /.navbar-collapse -->#}
+{#  </div>#}
+{#</nav>#}
+
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Header section -->
+	<header class="header-section">
+		<div class="header-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-2 text-center text-lg-left">
+						<!-- logo -->
+						<a href="./index.html" class="site-logo">
+							<img src="{% static "home/img/logo.png" %}" alt="">
+						</a>
+					</div>
+					<div class="col-xl-6 col-lg-5">
+						<form class="header-search-form" action="/shop/search/" method="get">
+							<input name="q" type="text" placeholder="Search on divisima ....">
+							<button><i class="flaticon-search"></i></button>
+						</form>
+					</div>
+					<div class="col-xl-4 col-lg-5">
+						<div class="user-panel">
+							<div class="up-item">
+								<i class="flaticon-profile"></i>
+								<a href="/accounts/login/">login</a> In or <a href="/shop/signup/">Create Account</a>
+
+
+							</div>
+                              {% with totail_items=cart|length %}
+                                        {% if cart|length > 0 %}
+                                            <a href="{% url "cart:cart_detail" %}" style="color: #ffffff"> </a>
+							            <div class="up-item">
+								                <div class="shopping-card">
+									                <i class="flaticon-bag"></i>
+									                    <span>{{ totail_items }} item {{ totail_items|pluralize }}</span>
+								                </div>
+								            <a href="#">Shopping Cart</a>
+
+{#                                                , Kshs. {{ cart.get_total_price }}#}
+
+                                        {% else %}
+                                            Your cart is empty.
+                                    {% endif %}
+                                  {% endwith %}
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav class="main-navbar">
+			<div class="container">
+				<!-- menu -->
+				<ul class="main-menu">
+					<li><a href="#">Home</a></li>
+{#					<li><a href="#">Women</a></li>#}
+{#					<li><a href="#">Men</a></li>#}
+{#					<li><a href="#">Jewelry#}
+{#						<span class="new">New</span>#}
+{#					</a></li>#}
+{#					<li><a href="#">Shoes</a>#}
+{#						<ul class="sub-menu">#}
+{#							<li><a href="#">Sneakers</a></li>#}
+{#							<li><a href="#">Sandals</a></li>#}
+{#							<li><a href="#">Formal Shoes</a></li>#}
+{#							<li><a href="#">Boots</a></li>#}
+{#							<li><a href="#">Flip Flops</a></li>#}
+{#						</ul>#}
+{#					</li>#}
+{#					<li><a href="#">Pages</a>#}
+{#						<ul class="sub-menu">#}
+{#							<li><a href="./product.html">Product Page</a></li>#}
+{#							<li><a href="./category.html">Category Page</a></li>#}
+{#							<li><a href="./cart.html">Cart Page</a></li>#}
+{#							<li><a href="./checkout.html">Checkout Page</a></li>#}
+{#							<li><a href="./contact.html">Contact Page</a></li>#}
+{#						</ul>#}
+{#					</li>#}
+                    <li> {% if user.is_authenticated %}
+                            <li><a href="#">{{ user.username }}</a></li>
+                            <li><a href="{% url 'logout' %}">Log Out</a></li>
+                            <li><a href="{% url 'password_change' %}">Change Password</a></li>
+                            {% else %}
+                        <li><a href="{% url 'blog:signup' %}">Sign Up</a></li>
+                        <li><a href="{% url 'login' %}">Log In</a></li>
+                        {% endif %}
+                    </li>
+					<li><a href="/blog/">Blog</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<!-- Header section end -->

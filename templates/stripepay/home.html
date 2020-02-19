@@ -1,0 +1,17 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+    Your Shopping Cart| Payment
+{% endblock %}
+{% block content %}
+<!-- templates/home.html -->
+<h2>Buy for testing Dummy Charge</h2>
+<form action="{% url 'charge' %}" method="post">
+  {% csrf_token %}
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="{{ key }}"
+          data-description="online shop "
+          data-amount="500"
+          data-locale="auto"></script>
+</form>
+{% endblock %}
