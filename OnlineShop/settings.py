@@ -29,7 +29,7 @@ SECRET_KEY = '=mez2!!s646w63ho^#-0jk@da7sj^6&#fe5!axi&d_@647%vj0'
 DEBUG = False
 # DEBUG = True
 
-ALLOWED_HOSTS = ['https://kamakshionlineshop.herokuapp.com/']
+ALLOWED_HOSTS = ['kamakshionlineshop.herokuapp.com/']
 
 
 # Application definition
