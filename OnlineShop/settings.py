@@ -25,9 +25,10 @@ STATIC_DIR=os.path.join(BASE_DIR,'static')
 SECRET_KEY = '=mez2!!s646w63ho^#-0jk@da7sj^6&#fe5!axi&d_@647%vj0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+# DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://kamakshionlineshop.herokuapp.com/']
 
 
 # Application definition
