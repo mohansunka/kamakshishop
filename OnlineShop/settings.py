@@ -90,9 +90,7 @@ WSGI_APPLICATION = 'OnlineShop.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-import dj_database_url
-	prod_db=dj_database_url.config(conn_max_age=500)
-	DATABASES['defalt'].update(prod_db)
+
 
 DATABASES = {
     'default': {
@@ -146,7 +144,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     STATIC_DIR,
 ]
-3.	STATICFILES_STORAGE='whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE='whitenoise.django.GzipManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -229,3 +227,8 @@ import datetime
 #     "JWT_AUTH_HEADER_PREFIX" :'jwt',
 #     "JWT_EXPIRATION_DELTA":datetime.timedelta(seconds=120),
 # }
+
+
+import dj_database_url
+prod_db=dj_database_url.config(conn_max_age=500)
+DATABASES['defalt'].update(prod_db)
