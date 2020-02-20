@@ -1,1 +1,0 @@
-web:gunicorn kamakshionlineshop.wsgi --log-file �
