@@ -10,7 +10,7 @@ django-jsonfield==1.4.0
 django-materialize==1.0.1a2
 django-materializecss-form==1.1.17
 django-stripe-payments==2.0.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 djangorestframework-simplejwt==4.4.0
 gunicorn==20.0.4
